@@ -44,6 +44,7 @@ ORDER BY tempo ASC
 LIMIT 1
 
 #Then, I created a common table expression (CTE) and used it to perform different calculations.
+
 WITH Popularity AS (
 SELECT s.artist_name, AVG(s.popularity) AS average_popularity, AVG(s.loudness) AS average_loudness
 FROM Spotifydata AS s
