@@ -36,3 +36,27 @@ SELECT artist_name, track_name, popularity
 FROM BIT_DB.Spotifydata
 ORDER BY popularity DESC
 LIMIT 10;
+
+#3. Provide the artist name and track name with the slowest tempo.
+SELECT artist_name, track_name, tempo
+FROM BIT_DB.Spotifydata
+ORDER BY tempo ASC
+LIMIT 1
+
+#Then, I created a common table expression (CTE) and used it to perform different calculations.
+WITH Popularity AS (
+SELECT s.artist_name, AVG(s.popularity) AS average_popularity, AVG(s.loudness) AS average_loudness
+FROM Spotifydata AS s
+GROUP BY s.artist_name
+)
+
+SELECT artist_name, average_popularity, 'Top Star' AS tag
+FROM Popularity
+WHERE average_popularity >= 90
+ORDER BY average_popularity;
+
+SELECT artist_name, average_loudness
+FROM Popularity
+WHERE average_loudness < -5
+ORDER BY average_loudness
+LIMIT 5
