@@ -43,6 +43,11 @@ FROM BIT_DB.Spotifydata
 ORDER BY tempo ASC
 LIMIT 1
 
+#4. Arrange the number of entries for each artist starting from the artist with the most entries.
+SELECT artist_name, COUNT(*) OVER (PARTITION BY artist_name) AS Entries
+FROM BIT_DB.Spotifydata
+ORDER BY Entries DESC;
+
 #Then, I created a common table expression (CTE) and used it to perform different calculations.
 
 WITH Popularity AS (
