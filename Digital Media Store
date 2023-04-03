@@ -1,4 +1,4 @@
-#In this SQL code, I'm querying a database that's holding data from a digital media store to answer questions about the data. 
+#In this SQL code, I'm querying a database that's holding data from a digital media store to answer questions about the data while using 3 tables joins.
 
 #1. Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
 SELECT FirstName, LastName, CustomerId, Country
